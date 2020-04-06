@@ -17,11 +17,11 @@ public class Event : ScriptableObject
         eventListeners.Remove(listener);
     }
 
-    public void Occured()
+    public void Occured(GameObject gameObject)
     {
         for (int i = 0; i < eventListeners.Count; i++)
         {
-            eventListeners[i].OnEvenOccurs();
+            eventListeners[i].OnEvenOccurs(gameObject);
         }
     }
 }

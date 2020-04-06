@@ -4,10 +4,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
+[Serializable] public class UnityGameObjectEvent: UnityEvent<GameObject>
+{
+
+}
+
 public class EventListener : MonoBehaviour
 {
     public Event gEvent;
-    public UnityEvent response;
+    public UnityGameObjectEvent response = new UnityGameObjectEvent();
 
     private void OnEnable()
     {
@@ -19,8 +24,8 @@ public class EventListener : MonoBehaviour
         gEvent.Unregister(this);
     }
 
-    public void OnEvenOccurs()
+    public void OnEvenOccurs(GameObject gameObject)
     {
-        response.Invoke();
+        response.Invoke(gameObject);
     }
 }

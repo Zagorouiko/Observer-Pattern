@@ -64,4 +64,14 @@ public class Radar : MonoBehaviour
         DrawRadarDots();
     }
 
+    public void ItemDropped(GameObject gameObject)
+    {
+        RegisterRadarObject(gameObject, gameObject.GetComponent<Egg>().icon);
+    }
+
+    public void ItemPickedUp(GameObject gameObject)
+    {
+        RemoveRadarObject(gameObject);
+    }
+
 }
